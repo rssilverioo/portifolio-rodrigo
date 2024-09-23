@@ -1,19 +1,18 @@
 import { api } from '../lib/axios'
 
-export interface GetProjectsResponse {
-  projects: {
-    id: string
-    name: string
-    description: string
-    image: string
-    client: string
-    demo?: string
-    github?: string
-    link?: string
-    year: string
-  }[]
+type Project = {
+  id: string
+  name: string
+  description: string
+  image: string
+  github: string
+  demo: string
+  client: string
+  link: string
+  year: string
 }
 
+type GetProjectsResponse = Project[]
 export async function getProjects() {
   const response = await api.get<GetProjectsResponse>('/projects')
   return response.data

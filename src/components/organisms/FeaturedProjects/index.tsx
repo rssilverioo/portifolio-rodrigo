@@ -22,7 +22,7 @@ const FeaturedProjects = () => {
           />
         </div>
         {result &&
-          result?.projects?.map((project) => {
+          result.map((project) => {
             return (
               <Card
                 key={project.id}
@@ -31,7 +31,8 @@ const FeaturedProjects = () => {
                 imageLink={project.image}
                 title={project.name}
                 year={project.year}
-                link={project.link}
+                githubLink={project.github}
+                link={project.demo}
               />
             )
           })}

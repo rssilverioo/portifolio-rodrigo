@@ -74,16 +74,24 @@ const Card = ({
           </div>
           <div className="flex w-full gap-4 pt-12">
             {link && (
-              <button className="text-[#D3E97A] hover:text-opacity-40  flex  gap-2 items-center font-manrope font-medium uppercase transition-all ease-linear underline underline-offset-8 ">
+              <a
+                href={link}
+                target="_blank"
+                className="text-[#D3E97A] hover:text-opacity-40  flex  gap-2 items-center font-manrope font-medium uppercase transition-all ease-linear underline underline-offset-8 "
+              >
                 Visit the website
                 <MoveUpRight />
-              </button>
+              </a>
             )}
             {githubLink && (
-              <button className="text-[#D3E97A] flex hover:text-opacity-40  gap-2 items-center font-manrope font-medium uppercase transition-all ease-linear underline underline-offset-8 ">
+              <a
+                href={githubLink}
+                target="_blank"
+                className="text-[#D3E97A] flex hover:text-opacity-40  gap-2 items-center font-manrope font-medium uppercase transition-all ease-linear underline underline-offset-8 "
+              >
                 See on github
                 <Image src={Github} alt="Github Rodrigo Silverio" />
-              </button>
+              </a>
             )}
           </div>
         </div>
