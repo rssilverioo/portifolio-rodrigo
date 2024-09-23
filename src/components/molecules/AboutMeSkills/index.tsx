@@ -4,17 +4,10 @@ import Text from '../../atoms/Text'
 import { getSkills } from '@/src/api/get-skills'
 
 const AboutMeSkills = () => {
-  const {
-    data: result,
-    error,
-    isLoading,
-  } = useQuery({
+  const { data: result } = useQuery({
     queryKey: ['skills'],
     queryFn: getSkills,
   })
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
 
   return (
     <>
@@ -30,7 +23,7 @@ const AboutMeSkills = () => {
           </h1>
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-5">
             {result &&
-              result.skills.map((skill) => {
+              result.map((skill) => {
                 return <Badge key={skill.id} title={skill.name} />
               })}
           </div>

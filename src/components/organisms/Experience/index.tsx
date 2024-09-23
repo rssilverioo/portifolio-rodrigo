@@ -18,7 +18,7 @@ const Experience = () => {
             </div>
             <div className="flex flex-col gap-8">
               {result &&
-                result.experiences.map((experience) => {
+                result.map((experience) => {
                   return (
                     <ExperienceCard
                       key={experience.id}

@@ -40,7 +40,11 @@ export default async function handler(
 
   if (req.method === 'GET') {
     try {
-      const projects = await prisma.project.findMany()
+      const projects = await prisma.project.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+      })
       return res.status(200).json(projects)
     } catch (error) {
       console.error('Erro ao buscar projetos:', error)
