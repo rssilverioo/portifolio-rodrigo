@@ -31,6 +31,15 @@ const Contact = () => {
   async function handleContactForm(data: FormData) {
     console.log(data)
   }
+
+  const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = '/resume.pdf'
+    link.download = 'resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
   return (
     <>
       <div className="md:pb-20 p-6 py-20" id="contact">
@@ -47,9 +56,12 @@ const Contact = () => {
                 </p>
                 <p className="text-zinc-200 mt-2 font-light font-manrope text-base">
                   For more info, here's my{' '}
-                  <span className="underline underline-offset-8 decoration-[#D3E97A]">
+                  <button
+                    onClick={handleDownload}
+                    className="underline underline-offset-8 decoration-[#D3E97A]"
+                  >
                     resume
-                  </span>
+                  </button>
                 </p>
                 <div className="mt-4 md:mt-10  mb-4 flex gap-2 w-full ">
                   <Image src={Linkedin} alt="Linkedin Rodrigo Silverio" />

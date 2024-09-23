@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  image       String
+  github      String?
+  demo        String?
+  client      String?
+  link        String?
+  year        Int?
+  createdAt   DateTime @default(now())
+}
+
+model AboutMe {
+  id          String       @id @default(uuid())
+  bio         String
+  skills      Skill[]
+  experiences Experience[]
+}
+
+model Skill {
+  id        String  @id @default(uuid())
+  name      String
+  level     String
+  aboutMe   AboutMe @relation(fields: [aboutMeId], references: [id])
+  aboutMeId String
+}
+
+model Experience {
+  id          String  @id @default(uuid())
+  company     String
+  position    String
+  description String
+  startDate   String
+  endDate     String
+  aboutMe     AboutMe @relation(fields: [aboutMeId], references: [id])
+  aboutMeId   String
+}

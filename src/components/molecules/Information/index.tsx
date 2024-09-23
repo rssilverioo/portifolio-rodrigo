@@ -23,19 +23,27 @@ const Information = () => {
                   Contact me
                 </Button>
 
-                <button className="ml-4 px-6 py-6 bg-neutral-800 rounded-full items-center justify-center hover:opacity-75 transition-all ease-linear">
+                <a
+                  href="https://www.linkedin.com/in/rodrigo-silv%C3%A9rio-7bab55149/"
+                  target="_blank"
+                  className="ml-4 px-6 py-6 bg-neutral-800 rounded-full items-center justify-center hover:opacity-75 transition-all ease-linear"
+                >
                   <Image
                     src={Linkedin}
                     alt="Linkedin Rodrigo Silverio Software Engineer"
                   />
-                </button>
+                </a>
 
-                <button className="px-6 py-6 bg-neutral-800 rounded-full items-center justify-center hover:opacity-75 transition-all ease-linear">
+                <a
+                  href="https://github.com/rssilverioo"
+                  target="_blank"
+                  className="px-6 py-6 bg-neutral-800 rounded-full items-center justify-center hover:opacity-75 transition-all ease-linear"
+                >
                   <Image
                     src={Github}
                     alt="Linkedin Rodrigo Silverio Software Engineer"
                   />
-                </button>
+                </a>
               </div>
             </div>
           </div>
