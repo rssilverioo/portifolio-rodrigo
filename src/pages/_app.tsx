@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 import { queryClient } from '../lib/react-query'
 import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
+import { Toaster } from 'sonner'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
             content="Rodrigo Silverio Software Engineer"
           />
         </Head>
+        <Toaster richColors />
         <Component {...pageProps} />
         <DefaultSeo
           openGraph={{

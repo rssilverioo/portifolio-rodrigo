@@ -2,36 +2,12 @@
 import Container from '../../atoms/Container'
 import Text from '../../atoms/Text'
 import Image from 'next/image'
-
 import Linkedin from '../../../../public/svg/linkedin.svg'
 import Github from '../../../../public/svg/github.svg'
-import Button from '../../atoms/Button'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 
-const FormContactSchema = z.object({
-  name: z.string().min(3, { message: 'Precisa ter pelo menos 3 letras' }),
-  email: z.string().email('This is not a valid email.'),
-  subject: z.string().min(3, { message: 'Precisa ter pelo menos 3 letras' }),
-  message: z.string().min(1, 'A mensagem não pode estar vazia'),
-})
-
-type FormData = z.infer<typeof FormContactSchema>
+import ContactForm from '../../molecules/ContactForm'
 
 const Contact = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(FormContactSchema),
-  })
-
-  async function handleContactForm(data: FormData) {
-    console.log(data)
-  }
-
   const handleDownload = () => {
     const link = document.createElement('a')
     link.href = '/resume.pdf'
@@ -74,68 +50,7 @@ const Contact = () => {
             </div>
 
             <div className="w-full rounded-lg shadow-lg">
-              <form
-                className="space-y-4"
-                onClick={handleSubmit(handleContactForm)}
-              >
-                <div>
-                  <label className="block text-zinc-200 text-sm font-light  font-manrope mb-2">
-                    Name
-                  </label>
-                  <input
-                    className="w-full p-2 rounded-md font-manrope border bg-[#1A1A1A] border-zinc-900 focus:outline-none   "
-                    {...register('name')}
-                  />
-                  {errors && errors.name && (
-                    <p className="text-sm text-red-400 font-manrope">
-                      {errors.name.message}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-zinc-200 text-sm font-light  font-manrope mb-2">
-                    Email
-                  </label>
-                  <input
-                    {...register('email')}
-                    className="w-full p-2 rounded-md font-manrope border bg-[#1A1A1A] border-zinc-900 focus:outline-none  "
-                  />
-                  {errors && errors.email && (
-                    <p className="text-sm text-red-400 font-manrope">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-zinc-200 text-sm font-light  font-manrope mb-2">
-                    Subject
-                  </label>
-                  <input
-                    {...register('subject')}
-                    className="w-full p-2 rounded-md font-manrope border bg-[#1A1A1A] border-zinc-900 focus:outline-none  "
-                  />
-                  {errors && errors.subject && (
-                    <p className="text-sm text-red-400 font-manrope">
-                      {errors.subject.message}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-zinc-200 text-sm font-light  font-manrope mb-2">
-                    Name
-                  </label>
-                  <textarea
-                    {...register('message')}
-                    className="min-w-[304px] p-2 font-manrope w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600  bg-[#1A1A1A] rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 resize-none focus:outline-none scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
-                  />
-                  {errors && errors.message && (
-                    <p className="text-sm text-red-400 font-manrope">
-                      {errors.message.message}
-                    </p>
-                  )}
-                </div>
-                <Button>Submit</Button>
-              </form>
+              <ContactForm />
               <div className="md:hidden flex mt-10 font-manrope">
                 &copy; Rodrigo Silverio
               </div>

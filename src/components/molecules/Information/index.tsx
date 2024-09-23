@@ -5,7 +5,11 @@ import Github from '../../../../public/svg/github.svg'
 import Button from '../../atoms/Button'
 import Text from '../../atoms/Text'
 import { MoveUpRight } from 'lucide-react'
+import Modal from '../../atoms/Modal'
+import { useState } from 'react'
 const Information = () => {
+  const [contactModalOpen, setContactModalOpen] = useState(false)
+
   return (
     <>
       <div>
@@ -14,12 +18,15 @@ const Information = () => {
             <Text title="HI, I AM " />
             <Text
               title="RODRIGO SILVERIO"
-              subtitle="A front-end developer based in Brazil who is passionate about developing
+              subtitle="A Software Engineer based in Brazil who is passionate about developing
         software."
             />
             <div className="mt-10 flex  items-center">
               <div className="flex w-full gap-2">
-                <Button icon={<MoveUpRight className="text-zinc-100" />}>
+                <Button
+                  onClick={() => setContactModalOpen(true)}
+                  icon={<MoveUpRight className="text-zinc-100" />}
+                >
                   Contact me
                 </Button>
 
@@ -57,6 +64,10 @@ const Information = () => {
             </div>
           </div>
         </div>
+        <Modal
+          contactModalOpen={contactModalOpen}
+          setContactModalOpen={setContactModalOpen}
+        />
       </div>
     </>
   )

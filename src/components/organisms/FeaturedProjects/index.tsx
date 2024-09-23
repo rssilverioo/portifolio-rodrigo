@@ -13,7 +13,10 @@ const FeaturedProjects = () => {
   console.log(result)
 
   return (
-    <div className="border-b border-zinc-800 border-opacity-70 p-6 py-20">
+    <div
+      className="border-b border-zinc-800 border-opacity-70 p-6 py-20"
+      id="projects"
+    >
       <Container>
         <div className="lg:w-1/2">
           <Text

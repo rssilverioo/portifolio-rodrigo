@@ -38,16 +38,17 @@ const AboutMeComponent = ({ aboutme }: AboutMeProps) => {
             </div>
             <div className="w-full gap-2 flex flex-col">
               <h1 className="font-manrope text-2xl font-medium">
-                I am a front-end developer based in Brazil.{' '}
+                I am a Software Engineer based in Brazil.{' '}
               </h1>
               <span className="font-light text-base font-manrope">
-                I'm a front-end developer based in Brazil looking for
-                interesting opportunities. I have a background in Systems
-                Analysis and Development. I like to focus on accessibility when
-                developing. I'm passionate and curious about solving problems.
-                I'm currently exploring NextJs. When I'm not coding, I like to
-                play soccer, watch TV series and movies. Learn more to improve
-                your skills.
+                Professional with a degree in Systems Analysis and Development
+                graduate with over 5 years of experience in front-end
+                development, specializing in web and mobile apps. Skilled in
+                React, Next.js, JavaScript, TypeScript, SASS, Tailwind, styled
+                components, Git version control, and scalable architecture
+                (Atomic Design). Proficient in unit testing with Jest and
+                Testing Library, delivering efficient and user-friendly
+                interfaces
               </span>
               <div className="mt-10">
                 {!aboutme && (
