@@ -16,13 +16,13 @@ const Navbar = () => {
 
   const handleWorkClick = () => {
     if (router.pathname !== '/') {
-      // Altere '/' para a página que você deseja verificar
-      router.push('/#projects') // Redireciona para a seção de trabalhos
+      router.push('/#projects')
     } else {
-      window.scrollTo({
-        top: document.getElementById('projects').offsetTop,
-        behavior: 'smooth',
-      })
+      const element = document.getElementById('projects')
+      if (element) {
+        // Verifique se o elemento não é null
+        window.scrollTo({ top: element.offsetTop, behavior: 'smooth' })
+      }
     }
   }
   return (
