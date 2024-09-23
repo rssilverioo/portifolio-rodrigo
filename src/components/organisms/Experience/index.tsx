@@ -16,7 +16,7 @@ const Experience = () => {
             <div className="w-full">
               <Text title="My Experience" />
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col w-full max-w-[1440px] gap-8">
               {result &&
                 result.map((experience) => {
                   return (

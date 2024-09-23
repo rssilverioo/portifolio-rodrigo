@@ -10,11 +10,19 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       const aboutMe = await prisma.aboutMe.findFirst({
-        include: { experiences: true },
+        include: {
+          experiences: {
+            orderBy: {
+              startDate: 'desc', // Ordenando por data de início em ordem decrescente
+            },
+          },
+        },
       })
+
       if (!aboutMe) {
         return res.status(404).json({ error: 'About Me não encontrado.' })
       }
+
       return res.status(200).json(aboutMe.experiences)
     } catch (error) {
       console.error('Erro ao buscar experiências:', error)
