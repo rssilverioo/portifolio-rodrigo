@@ -22,7 +22,7 @@ const FeaturedProjects = () => {
           />
         </div>
         {result &&
-          result.projects.map((project) => {
+          result?.projects?.map((project) => {
             return (
               <Card
                 key={project.id}
