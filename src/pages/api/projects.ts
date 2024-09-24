@@ -42,7 +42,7 @@ export default async function handler(
     try {
       const projects = await prisma.project.findMany({
         orderBy: {
-          createdAt: 'desc',
+          year: 'desc', // Ordenando pelos anos do projeto, do mais novo para o mais antigo
         },
       })
       return res.status(200).json(projects)
