@@ -5,7 +5,7 @@ import Card from '../../molecules/Card'
 import { useQuery } from '@tanstack/react-query'
 
 const FeaturedProjects = () => {
-  const { data: result } = useQuery({
+  const { data: result, isLoading } = useQuery({
     queryKey: ['projects'],
     queryFn: getProjects,
   })
@@ -28,6 +28,7 @@ const FeaturedProjects = () => {
           result.map((project) => {
             return (
               <Card
+                isLoading={isLoading}
                 key={project.id}
                 client={project.client}
                 description={project.description}
