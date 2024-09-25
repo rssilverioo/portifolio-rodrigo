@@ -4,12 +4,12 @@ import Github from '../../../../public/svg/github.svg'
 import { Skeleton } from '@/components/ui/skeleton'
 
 interface ICardProps {
-  title: string
-  description: string
+  title?: string
+  description?: string
   githubLink?: string
-  imageLink: string
-  client: string
-  year: string
+  imageLink?: string
+  client?: string
+  year?: string
   link?: string
   isLoading?: boolean
 }
@@ -42,7 +42,7 @@ const Card = ({
               ) : (
                 <>
                   <Image
-                    src={imageLink}
+                    src={imageLink || ''}
                     alt=""
                     width="486"
                     height="347"
@@ -55,13 +55,22 @@ const Card = ({
           </div>
         </div>
         <div className="w-full py-3 md:py-16 flex flex-col gap-4">
-          <h1 className="font-manrope text-3xl font-medium">{title}</h1>
-          <span
-            className="font-manrope text-base font-light leading-relaxed
+          {isLoading ? (
+            <>
+              <Skeleton className="h-5 w-[250px] rounded-xl" />
+              <Skeleton className="h-5 w-[250px] rounded-xl" />
+            </>
+          ) : (
+            <>
+              <h1 className="font-manrope text-3xl font-medium">{title}</h1>
+              <span
+                className="font-manrope text-base font-light leading-relaxed
  "
-          >
-            {description}
-          </span>
+              >
+                {description}
+              </span>
+            </>
+          )}
           <div className="pt-4">
             {isLoading ? (
               <Skeleton className="h-4 w-[250px]" />

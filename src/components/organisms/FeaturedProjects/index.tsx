@@ -24,11 +24,16 @@ const FeaturedProjects = () => {
             subtitle="Here are some of the selected projects that showcase my passion for front-end development."
           />
         </div>
-        {result &&
+        {isLoading ? (
+          <>
+            {' '}
+            <Card isLoading={isLoading} />
+          </>
+        ) : (
+          result &&
           result.map((project) => {
             return (
               <Card
-                isLoading={isLoading}
                 key={project.id}
                 client={project.client}
                 description={project.description}
@@ -39,7 +44,8 @@ const FeaturedProjects = () => {
                 link={project.demo}
               />
             )
-          })}
+          })
+        )}
       </Container>
     </div>
   )
